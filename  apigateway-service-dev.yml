@@ -11,16 +11,11 @@ eureka:
 spring:
   application:
     name: apigateway-service
+
   cloud:
     config:
       profile: dev
       label: main
-    gateway:
-#      서비스에 맞게 추후 수정
-#      routes:
-#        - id:
-#          uri: lb://
-#          predicates:
-#            - Path=
-  config:
-    import: http://localhost:8888
+
+  gateway:
+    # 서비스 라우팅은 여기에
