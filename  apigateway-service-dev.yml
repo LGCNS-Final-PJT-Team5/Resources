@@ -1,3 +1,8 @@
+spring:
+  profiles: dev
+  application:
+    name: apigateway-service
+
 server:
   port: 8000
 
@@ -8,17 +13,13 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-spring:
-  application:
-    name: apigateway-service
+cloud:
+  config:
+    profile: dev
+    label: main
 
-  cloud:
-    config:
-      profile: dev
-      label: main
-
-  gateway:
-    # 서비스 라우팅은 여기에
+gateway:
+  # 서비스 라우팅은 여기에
 
 management:
   endpoints:
