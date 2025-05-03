@@ -16,7 +16,7 @@ spring:
         - id: auth-service
           uri: lb://AUTH-SERVICE
           predicates:
-            - Path=/auth-service/**
+            - Path=/auth/**
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
