@@ -27,6 +27,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
+            - AuthorizationHeaderFilter
               
 eureka:
   instance:
