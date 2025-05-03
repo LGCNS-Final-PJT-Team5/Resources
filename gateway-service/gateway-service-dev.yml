@@ -21,17 +21,7 @@ spring:
               - Method=GET,POST,PATCH,DELETE
             filters:
               - RemoveRequestHeader=Cookie
-  
-          - id: user-service
-            uri: lb://USER-SERVICE
-            predicates:
-              - Path=/user/**
-              - Method=GET,POST,PATCH,DELETE
-            filters:
-              - RemoveRequestHeader=Cookie
-              - RewritePath=/user/(?<segment>.*), /${segment}
-              - AuthorizationHeaderFilter
-
+              
 eureka:
   instance:
     prefer-ip-address: true
