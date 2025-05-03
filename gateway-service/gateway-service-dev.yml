@@ -12,22 +12,21 @@ spring:
       profile: dev
       label: main
     gateway:
-      mvc:
-        routes:
-          - id: auth-service
-            uri: lb://AUTH-SERVICE
-            predicates:
-              - Path=/auth/**
-              - Method=GET,POST,PATCH,DELETE
-            filters:
-              - RemoveRequestHeader=Cookie
-          - id: user-service
-            uri: lb://USER-SERVICE
-            predicates:
-              - Path=/user/**
-              - Method=GET,POST,PATCH,DELETE
-            filters:
-              - RemoveRequestHeader=Cookie
+      routes:
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
               
 eureka:
   instance:
