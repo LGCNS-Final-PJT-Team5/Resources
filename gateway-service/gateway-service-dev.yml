@@ -21,6 +21,13 @@ spring:
               - Method=GET,POST,PATCH,DELETE
             filters:
               - RemoveRequestHeader=Cookie
+          - id: user-service
+            uri: lb://USER-SERVICE
+            predicates:
+              - Path=/user/**
+              - Method=GET,POST,PATCH,DELETE
+            filters:
+              - RemoveRequestHeader=Cookie
               
 eureka:
   instance:
