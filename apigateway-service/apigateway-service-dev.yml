@@ -1,3 +1,6 @@
+server:
+  port: 8000
+
 spring:
   config:
     activate:
@@ -27,9 +30,6 @@ spring:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user/(?<segment>.*), /$\{segment}
             - AuthorizationHeaderFilter
-
-server:
-  port: 8000
 
 eureka:
   client:
