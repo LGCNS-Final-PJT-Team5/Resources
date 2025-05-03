@@ -44,3 +44,6 @@ management:
     web:
       exposure:
         include: "*"
+jwt:
+  issuer: http://localhost
+  access-token-secret: hw4Mcjad0qJzSqFDwgm0uvJ3JpNY8ay7
