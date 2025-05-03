@@ -14,12 +14,12 @@ spring:
     password:
   oauth:
     kakao:
-      client-id: ${KAKAO_CLIENT}
-      client-secret: ${KAKAO_CLIENT_SECRET}
-      redirect-uri: ${KAKAO_REDIREDT_URI}
-      grant-type: ${KAKAO_CLIENT_GRANT_TYPE}
+      client-id: 9f697962efce6aac615f2190bb4fe237
+      client-secret: c4yuKmXkMYzkdUEo57ERd9MljvQ3PgPM
+      redirect-uri: http://localhost:8080/oauth/kakao/code
+      grant-type: authorization_code
   jwt:
-    secret: ${JWT_SECRET_KEY}
+    secret: hw4Mcjad0qJzSqFDwgm0uvJ3JpNY8ay7
 
 eureka:
   client:
