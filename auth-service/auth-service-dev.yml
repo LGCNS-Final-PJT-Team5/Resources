@@ -1,1 +1,36 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: auth-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/MODIVE
+    username: root
+    password:
+  oauth:
+    kakao:
+      client-id: ${KAKAO_CLIENT}
+      client-secret: ${KAKAO_CLIENT_SECRET}
+      redirect-uri: ${KAKAO_REDIREDT_URI}
+      grant-type: ${KAKAO_CLIENT_GRANT_TYPE}
+  jwt:
+    secret: ${JWT_SECRET_KEY}
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
