@@ -20,7 +20,6 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/auth/(?<segment>.*), /${segment}
 
         - id: user-service
           uri: lb://USER-SERVICE
