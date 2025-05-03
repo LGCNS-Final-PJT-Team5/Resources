@@ -12,24 +12,7 @@ spring:
       profile: dev
       label: main
     gateway:
-      routes:
-        - id: auth-service
-          uri: lb://AUTH-SERVICE
-          predicates:
-            - Path=/auth/**
-            - Method=GET,POST,PATCH,DELETE
-          filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/auth/(?<segment>.*), /$\{segment}
-         - id: user-service
-           uri: lb://USER-SERVICE
-           predicates:
-            - Path=/user/**
-            - Method=GET,POST,PATCH,DELETE
-           filters:
-            - RemoveRequestHeader=Cookie
-            - RewritePath=/user/(?<segment>.*), /$\{segment}
-            - AuthorizationHeaderFilter
+      
 
 eureka:
   client:
