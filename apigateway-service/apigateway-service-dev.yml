@@ -9,7 +9,24 @@ spring:
       profile: dev
       label: main
     gateway:
-      # 서비스 라우팅은 여기에
+      routes:
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth-service/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/auth/(?<segment>.*), /$\{segment}
+         - id: user-service
+           uri: lb://USER-SERVICE
+           predicates:
+            - Path=/user/**
+            - Method=GET,POST,PATCH,DELETE
+           filters:
+            - RemoveRequestHeader=Cookie
+            - RewritePath=/user/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
 
 server:
   port: 8000
