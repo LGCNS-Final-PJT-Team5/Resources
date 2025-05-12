@@ -1,3 +1,6 @@
+server:
+  port: 8000
+
 spring:
   config:
     activate:
@@ -9,12 +12,31 @@ spring:
       profile: dev
       label: main
     gateway:
-      # 서비스 라우팅은 여기에
+      routes:
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+            - AuthorizationHeaderFilter
+  jwt:
+    issuer: http://localhost
+    secret: hw4Mcjad0qJzSqFDwgm0uvJ3JpNY8ay7
 
-server:
-  port: 8000
-
+              
 eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
   client:
     register-with-eureka: true
     fetch-registry: true
