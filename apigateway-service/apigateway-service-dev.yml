@@ -28,6 +28,42 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - AuthorizationHeaderFilter
+        - id: dashboard-service
+          uri: lb://DASHBOARD-SERVICE
+          predicates:
+            - Path=/dashboard/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: llm-service
+          uri: lb://LLM-SERVICE
+          predicates:
+            - Path=/llm/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: reward-service
+          uri: lb://REWARD-SERVICE
+          predicates:
+            - Path=/reward/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: admin-service
+          uri: lb://ADMIN-SERVICE
+          predicates: 
+            - Path=/admin/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+        - id: analysis-service
+          uri: lb://ANALYSIS-SERVICE
+          predicates: 
+            - Path=/analysis/**
+            - Method=GET,POST,PATCH,DELETE
+          filters:
+            - RemoveRequestHeader=Cookie
+            
   jwt:
     issuer: http://localhost
     secret: hw4Mcjad0qJzSqFDwgm0uvJ3JpNY8ay7
