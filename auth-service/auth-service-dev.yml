@@ -9,9 +9,9 @@ spring:
       ddl-auto: update
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql:3306/MODIVE
-    username: root
-    password:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/${MYSQL_DB:MODIVE}
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:}
   oauth:
     kakao:
       client-id: 9f697962efce6aac615f2190bb4fe237
