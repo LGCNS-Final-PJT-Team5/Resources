@@ -8,7 +8,7 @@ spring:
     name: reward-service
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/${MYSQL_DB:MODIVE}
