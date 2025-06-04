@@ -27,7 +27,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            # - AuthorizationHeaderFilter
+            - AuthorizationHeaderFilter
         - id: dashboard-service
           uri: lb://DASHBOARD-SERVICE
           predicates:
@@ -35,7 +35,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            # - AuthorizationHeaderFilter
+            - AuthorizationHeaderFilter
         - id: llm-service
           uri: lb://LLM-SERVICE
           predicates:
@@ -43,7 +43,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            # - AuthorizationHeaderFilter
+            - AuthorizationHeaderFilter
         - id: reward-service
           uri: lb://REWARD-SERVICE
           predicates:
@@ -51,7 +51,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            # - AuthorizationHeaderFilter
+            - AuthorizationHeaderFilter
         - id: admin-service
           uri: lb://ADMIN-SERVICE
           predicates: 
@@ -59,7 +59,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            # - AuthorizationHeaderFilter
+            - AuthorizationHeaderFilter
         - id: analysis-service
           uri: lb://ANALYSIS-SERVICE
           predicates: 
@@ -67,7 +67,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            # - AuthorizationHeaderFilter
+            - AuthorizationHeaderFilter
             
   jwt:
     issuer: http://localhost
