@@ -43,7 +43,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            - AuthorizationHeaderFilter
+            # - AuthorizationHeaderFilter
         - id: reward-service
           uri: lb://REWARD-SERVICE
           predicates:
