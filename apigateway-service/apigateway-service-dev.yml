@@ -35,7 +35,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            - AuthorizationHeaderFilter
+            # - AuthorizationHeaderFilter
         - id: llm-service
           uri: lb://LLM-SERVICE
           predicates:
@@ -67,7 +67,7 @@ spring:
             - Method=GET,POST,PATCH,DELETE
           filters:
             - RemoveRequestHeader=Cookie
-            - AuthorizationHeaderFilter
+            # - AuthorizationHeaderFilter
             
   jwt:
     issuer: http://localhost
